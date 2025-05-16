@@ -44,7 +44,7 @@ class Enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     class_field = models.ForeignKey(Class, on_delete=models.CASCADE)  # Using class_field since 'class' is a Python keyword
     grade = models.CharField(max_length=2, null=True, blank=True)
-
+    enrollment_date = models.DateField(auto_now_add=True)
     class Meta:
         # Ensuring a student can't enroll in the same class twice
         unique_together = ['student', 'class_field']
